@@ -1,0 +1,147 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="UTF-8" />
+    <!-- تم قفل التكبير والتصغير تماماً هنا -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover" />
+    <title>ريفانس المالية | المنصة المتخصصة للحلول المالية</title>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&family=Tajawal:wght@300;400;500;700;800&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              brand: '#22042C',
+              'brand-soft': '#3B0E49',
+              gold: '#C7A969',
+              'gold-light': '#f5e5b0',
+              muted: '#7A7288',
+              'bg-page': '#F5F4FA',
+              'dark-bg': '#06010a',
+              'dark-card': '#0f0216',
+            },
+            fontFamily: {
+              sans: ['IBM Plex Sans Arabic', 'sans-serif'],
+            },
+            backgroundImage: {
+              'card-gradient': 'linear-gradient(180deg, #FFFFFF 0%, #F9F6FF 100%)',
+              'gold-gradient': 'linear-gradient(135deg, #C7A969, #f5e5b0)',
+              'story-gradient': 'linear-gradient(180deg, #FFFDF7 0%, #FFF4E6 100%)',
+              'footer-gradient': 'linear-gradient(180deg, rgba(255,253,245,1) 0%, rgba(252,248,235,1) 35%, rgba(247,239,212,1) 70%, rgba(243,229,188,1) 100%)',
+            }
+          }
+        }
+      }
+    </script>
+    <style>
+      html {
+        scroll-behavior: smooth;
+        scroll-padding-top: 60px;
+        /* منع سحب الصفحة للأسفل لتحديث الصفحة في بعض المتصفحات ومنع الاهتزاز */
+        overscroll-behavior-y: none;
+      }
+      
+      body, #root {
+        /* قفل الحركة العرضية تماماً */
+        overflow-x: hidden !important;
+        width: 100% !important;
+        max-width: 100% !important;
+        position: relative;
+        /* منع حركات اللمس الجانبية المتداخلة */
+        touch-action: pan-y;
+        -webkit-overflow-scrolling: touch;
+      }
+
+      /* تحسين استقرار العناصر لمنع "القفزات" أثناء التحميل */
+      * {
+        -webkit-tap-highlight-color: transparent;
+        box-sizing: border-box;
+      }
+
+      .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+      }
+      .scrollbar-default::-webkit-scrollbar {
+          height: 4px;
+      }
+      .scrollbar-default::-webkit-scrollbar-thumb {
+          background: rgba(34, 4, 44, 0.25);
+          border-radius: 99px;
+      }
+      @keyframes rf-pulse {
+        0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(199,169,105,0.9); }
+        70% { transform: scale(1.4); box-shadow: 0 0 0 8px rgba(199,169,105,0); }
+        100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(199,169,105,0); }
+      }
+      .animate-rf-pulse {
+        animation: rf-pulse 1.4s infinite;
+      }
+      @keyframes marquee {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .animate-marquee {
+        animation: marquee 35s linear infinite;
+        width: max-content;
+      }
+
+      @media print {
+        body {
+          background-color: white !important;
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+        .print-hidden {
+          display: none !important;
+        }
+        /* Hide everything by default */
+        body * {
+          visibility: hidden;
+        }
+        /* Show only the print container and its contents */
+        .print-container, .print-container * {
+          visibility: visible;
+        }
+        /* Position the print container at the top left */
+        .print-container {
+          position: absolute !important;
+          left: 0 !important;
+          top: 0 !important;
+          width: 100% !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          background: white !important;
+        }
+        /* Reset modal styles for printing */
+        .print-container > div {
+          box-shadow: none !important;
+          border: none !important;
+          width: 100% !important;
+          max-width: none !important;
+          height: auto !important;
+          overflow: visible !important;
+          background: white !important;
+        }
+      }
+    </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/",
+    "@google/genai": "https://aistudiocdn.com/@google/genai@^1.31.0"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-[#F5F4FA] dark:bg-[#06010a] antialiased text-brand selection:bg-gold selection:text-white transition-colors duration-300">
+    <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+</html>
